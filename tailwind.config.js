@@ -1,9 +1,16 @@
 module.exports = {
 	purge: [
-		'./src/components/**/*.tsx',
-		'./pages/**/*.tsx'],
+		'./src/components/**/*.{js,ts,jsx,tsx}',
+		'./pages/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+      width:{
+        '50': '12.5rem'
+      },
+      borderWidth: {
+        '200': '200px',
+      }  
+    },
 	},
 	variants: {},
 	plugins: [
