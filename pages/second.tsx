@@ -6,7 +6,7 @@ const apiSample =
 // "https://jsonplaceholder.typicode.com/posts";
 "https://api.sampleapis.com/switch/games";
 
-const secondExperiment = () => {
+const SecondExperiment = () => {
     const [posts, setPosts] = useState([]);
     const [switchGames, setSwitchGames] = useState([]);
 
@@ -71,4 +71,4 @@ const secondExperiment = () => {
     )
 }
 
-export default secondExperiment
+export default SecondExperiment;
