@@ -14,7 +14,7 @@ const switchJson = async (req,res) => {
     }catch(error){
         //Catch the error message of json
         // console.log(error);
-        //Alternative you can output your error into something else, doesn't mean is an error. (But for now we are not using it)
+        //Alternative you can output your error into something else, doesn't mean is an error.
         res.status(200).json([{
             id: "0",
             name: "error",

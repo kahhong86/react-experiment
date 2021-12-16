@@ -23,7 +23,7 @@ const SecondExperiment = () => {
         fetch(apiSample)
             .then(res => {
                 //This is where api response came back. It can return 200 or 404.
-                console.log(res) //Result of res.
+                // console.log(res) //Result of res.
                 return(
                     res.json() //This is where you turn the data into json format
                 )
@@ -37,6 +37,7 @@ const SecondExperiment = () => {
 
 
     // Key in mapping is important to as an identifier, so that each list item is different
+    // Mapping needs to be in an array
     const useSwitchGames = switchGames.map((games) => {
         return(
             <div key={games.id}>
@@ -46,9 +47,8 @@ const SecondExperiment = () => {
     });
 
     const useAsyncFetchGames = asyncFetchGames.map((asyncFetchGame) => {
-        console.log(asyncFetchGames);
         return(
-            <div key={asyncFetchGames.id}>
+            <div key={asyncFetchGame.id}>
                 <p><strong className="w-9 inline-block">{asyncFetchGame.id}</strong> {asyncFetchGame.name}</p>
             </div>
         )
@@ -61,12 +61,11 @@ const SecondExperiment = () => {
             </h1>
             <div className="flex">
                 <div className="flex-1">
-                    <h2 className="font-bold">Fetch</h2>
+                    <h2 className="font-bold">Fetch (fetching directly from URL)</h2>
                     {useSwitchGames}
                 </div>
                 <div className="flex-1">
-                    <h2 className="font-bold">Async</h2>
-                    {/* {usePosts} */}
+                    <h2 className="font-bold">Async (fetching from local URL: <a href="/api/switch" className="text-blue-500 underline" target="_blank">/api/switch</a>)</h2>
                     {useAsyncFetchGames}
                 </div>
             </div>
