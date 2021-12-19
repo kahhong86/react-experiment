@@ -130,7 +130,7 @@ const ThirdExperiment = () => {
             <div key={index} className="mb-2 relative">
                 {collectionData.name}, {collectionData.sys.country} 
                 <div className="right-0 top-0 absolute">
-                    <button className="bg-blue-500 text-white rounded-xl px-5" onClick={() => {reprintItem(index)}}>Search</button>
+                    <button className="bg-blue-500 text-white rounded-xl px-5 mr-2" onClick={() => {reprintItem(index)}}>Search</button>
                     <button className="bg-red-500 text-white rounded-xl px-5" onClick={() => {deleteItem(index)}}>Delete</button>
                 </div>
             </div>
