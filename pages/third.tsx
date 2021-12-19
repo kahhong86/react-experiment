@@ -141,7 +141,7 @@ const ThirdExperiment = () => {
         <Layout title="Experiment 3">
             <h1>Experiment 3 (Get weather interview)</h1>
             
-            <h2 className="font-bold">Today's Weather</h2>
+            <h2 className="font-bold">Today’s Weather</h2>
             <span className="w-full border-b-2 border-solid border-black h-1 block mb-5"></span>
             <form onSubmit={handleSubmit}>
                 <div className="inline-block">

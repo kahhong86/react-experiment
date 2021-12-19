@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Layout from "../src/components/layout"
 import { fetchJson } from "../libs/api";
 import { switchGamesJson } from "../libs/apiType";
@@ -65,7 +66,7 @@ const SecondExperiment = () => {
                     {useSwitchGames}
                 </div>
                 <div className="flex-1">
-                    <h2 className="font-bold">Async (fetching from local URL: <a href="/api/switch" className="text-blue-500 underline" target="_blank">/api/switch</a>)</h2>
+                    <h2 className="font-bold">Async (fetching from local URL: <Link href="/api/switch"><a className="text-blue-500 underline" target="_blank">/api/switch</a></Link>)</h2>
                     {useAsyncFetchGames}
                 </div>
             </div>
