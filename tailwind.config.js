@@ -9,6 +9,7 @@ module.exports = {
       },
       borderWidth: {
         '200': '200px',
+		'48': '48px',
       }  
     },
 	},

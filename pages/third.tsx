@@ -144,15 +144,15 @@ const ThirdExperiment = () => {
             <h2 className="font-bold">Today’s Weather</h2>
             <span className="w-full border-b-2 border-solid border-black h-1 block mb-5"></span>
             <form onSubmit={handleSubmit}>
-                <div className="inline-block">
-                    <label htmlFor="city">City:</label> 
+                <div className="md:inline-block">
+                    <label htmlFor="city" className="md:w-auto w-16 inline-block">City:</label> 
                     <input type="text" name="city" onChange={handleChange} className="border-2 border-black ml-2"/>
                 </div>
-                <div className="inline-block ml-10">
-                    <label htmlFor="country">Country:</label> 
+                <div className="block md:inline-block md:ml-10 mt-2">
+                    <label htmlFor="country"className="md:w-auto  w-16 inline-block">Country:</label> 
                     <input type="text" name="country" onChange={handleChange} className="border-2 border-black ml-2"/>
                 </div>
-                <button type="submit" className="bg-blue-500 ml-10 text-white py-1 px-5 rounded-xl">Submit</button>
+                <button type="submit" className="bg-blue-500 ml-20 mt-2 md:ml-10 text-white py-1 px-5 rounded-xl">Submit</button>
             </form>
             {errorValidation ? <div className="bg-red-300 w-full px-2 py-1 my-5 border-2 border-red-500 border-solid">
                 Not found
