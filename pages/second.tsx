@@ -3,22 +3,13 @@ import Link from "next/link";
 import Layout from "../src/components/layout"
 import { fetchJson } from "../libs/api";
 import { switchGamesJson } from "../libs/apiType";
-// import fetchingURL from "./api/switch";
+import useApiFetch from "../hooks/useApiFetch";
 
 const apiSample = "https://api.sampleapis.com/switch/games";
 
 const SecondExperiment = () => {
     const [switchGames, setSwitchGames] = useState<any>([]);
-    const [asyncFetchGames, setAsyncFetchGames] = useState<any>([]);
-
-    const fetchSwitchGames = async() => {
-        try{
-            const switchRes = await fetchJson<switchGamesJson>("/api/switch"); //Fetching api from local machine. This will prevent any CORS error
-            setAsyncFetchGames(switchRes);
-        }catch(error){
-            console.log(error);
-        }
-    };
+    const asyncFetchGames = useApiFetch();
 
     useEffect(() => {
         fetch(apiSample)
@@ -32,8 +23,6 @@ const SecondExperiment = () => {
             .then(result => {
                 setSwitchGames(result);
             });
-
-        fetchSwitchGames();
     },[]);
 
 
