@@ -18,6 +18,7 @@ const Home:FunctionComponent<HomeProps> = () => {
         <Image 
           width="300"
           height="300"
+          alt="Prince"
           src={assetsUrl + "/shared/Logo-new_2x.png"}
         />
         <h1 className="border-b-2 border-black py-2 mb-0">Sitemap </h1>

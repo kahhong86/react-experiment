@@ -13,6 +13,7 @@ const Header = () =>{
                             src={assetsUrl + "/shared/Logo-blend.png"}
                             width="100"
                             height="100"
+                            alt="Prince"
                         />
                     </div>
                 </a>
