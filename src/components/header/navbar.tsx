@@ -1,35 +1,22 @@
 import Link from "next/link"
 import Router, { useRouter } from "next/router";
+import { NavigationItem } from "./item";
 
 const Navbar = () => {
     const router = useRouter();
 
     return(
         <nav className="">
-            <Link href="/">
-                <a className={`w-12 py-2 md:py-4 text-center md:text-left md:p-6 md:w-50 block hover:text-gray-900 ${router.pathname == "/" ? "bg-blue-900" : ""}`}>
-                    <span className="hidden md:block">First Experiment</span>
-                    <span className="block md:hidden text-2xl">1</span>
-                </a>
-            </Link>
-            <Link href="/second">
-                <a className={`w-12 py-2 md:py-4 text-center md:text-left md:p-6 md:w-50 block hover:text-gray-900" ${router.pathname == "/second" ? "bg-blue-900" : ""}`}>
-                    <span className="hidden md:block">Second Experiment</span>
-                    <span className="block md:hidden text-2xl">2</span>
-                </a>
-            </Link>
-            <Link href="/third">
-                <a className={`w-12 py-2 md:py-4 text-center md:text-left md:p-6 md:w-50 block hover:text-gray-900" ${router.pathname == "/third" ? "bg-blue-900" : ""}`}>
-                    <span className="hidden md:block">Third Experiment</span>
-                    <span className="block md:hidden text-2xl">3</span>
-                </a>
-            </Link>
-            <Link href="/fourth">
-                <a className={`w-12 py-2 md:py-4 text-center md:text-left md:p-6 md:w-50 block hover:text-gray-900" ${router.pathname == "/fourth" ? "bg-blue-900" : ""}`}>
-                    <span className="hidden md:block">Fourth Experiment</span>
-                    <span className="block md:hidden text-2xl">4</span>
-                </a>
-            </Link>
+            {NavigationItem.map(({name,small_name,url},index) => {
+                return(
+                    <Link href={url} key={index}>
+                        <a className={`w-12 py-2 md:py-4 text-center md:text-left md:p-6 md:w-50 block hover:text-gray-900 ${router.pathname == `${url}` ? "bg-blue-900" : ""}`}>
+                            <span className="hidden md:block">{name}</span>
+                            <span className="block md:hidden text-2xl">{small_name}</span>
+                        </a>    
+                    </Link>
+                )
+            })}
         </nav>
     )
 }
