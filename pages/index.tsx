@@ -24,8 +24,8 @@ const Home:FunctionComponent<HomeProps> = () => {
         <div className="text-center mx-auto">
           {NavigationItem.map(({name,small_name,url,desc},index) => {
               return(
-                <div className="w-full md:w-3/6 inline-block text-center mx-auto">
-                  <Link href={url} key={index}>
+                <div className="w-full md:w-3/6 inline-block text-center mx-auto" key={index}>
+                  <Link href={url}>
                       <a className={`py-2 md:py-4 border-b-2 border-grey-50 text-center md:text-center md:p-6 w-auto block hover:text-gray-900 ${router.pathname == `${url}` ? "bg-blue-900" : ""}`}>
                           <span className="md:block font-bold block">{name}</span>
                           <span>{desc}</span>
