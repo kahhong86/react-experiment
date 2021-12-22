@@ -145,14 +145,14 @@ const ThirdExperiment = () => {
             <span className="w-full border-b-2 border-solid border-black h-1 block mb-5"></span>
             <form onSubmit={handleSubmit}>
                 <div className="md:inline-block">
-                    <label htmlFor="city" className="md:w-auto w-16 inline-block">City:</label> 
-                    <input type="text" name="city" onChange={handleChange} className="border-2 border-black ml-2"/>
+                    <label htmlFor="city" className="w-2/6 md:w-auto md:w-16 inline-block md:mr-2">City:</label> 
+                    <input type="text" name="city" onChange={handleChange} className="w-4/6 md:w-auto border-2 border-black"/>
                 </div>
                 <div className="block md:inline-block md:ml-10 mt-2">
-                    <label htmlFor="country"className="md:w-auto  w-16 inline-block">Country:</label> 
-                    <input type="text" name="country" onChange={handleChange} className="border-2 border-black ml-2"/>
+                    <label htmlFor="country"className="w-2/6 md:w-auto  md:w-16 inline-block md:mr-2">Country:</label> 
+                    <input type="text" name="country" onChange={handleChange} className="w-4/6 md:w-auto border-2 border-black"/>
                 </div>
-                <button type="submit" className="bg-blue-500 ml-20 mt-2 md:ml-10 text-white py-1 px-5 rounded-xl">Submit</button>
+                <button type="submit" className="w-full md:w-auto bg-blue-500 mt-2 md:ml-10 text-white py-1 px-5 rounded-xl">Submit</button>
             </form>
             {errorValidation ? <div className="bg-red-300 w-full px-2 py-1 my-5 border-2 border-red-500 border-solid">
                 Not found
