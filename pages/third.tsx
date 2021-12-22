@@ -67,6 +67,28 @@ const ThirdExperiment = () => {
         setWeatherApi(weatherFetch);
     }
 
+    //This effect will run once the dependency change value
+    const weatherGet = async() => {
+        try{
+            setErrorValidation(false);
+            if(weatherApi !== ""){
+                const weatherRes:weatherInfo = await fetchJson(weatherApi);
+                setWeatherData(weatherRes);
+                if(weatherBoolean){
+                    setWeatherBoolean(false);
+                    setWeatherCollection([weatherRes]);
+                }else{
+                    setWeatherCollection([...weatherCollection, weatherRes]);
+                }
+            }
+            //If you console log your weatherData here, u will received a blank state. 
+            //This is because useState is async and this console fire before the data has been set. *Cont...*
+        }catch(error){
+            console.error(error);
+            setErrorValidation(true);
+        }
+    };
+
     //Delete array by index function
     const deleteItem = (index) => {
         const newCollection = [...weatherCollection];
@@ -80,27 +102,6 @@ const ThirdExperiment = () => {
     }
 
     useEffect(() => {
-        const weatherGet = async() => {
-            try{
-                setErrorValidation(false);
-                if(weatherApi !== ""){
-                    const weatherRes:weatherInfo = await fetchJson(weatherApi);
-                    setWeatherData(weatherRes);
-                    if(weatherBoolean){
-                        setWeatherBoolean(false);
-                        setWeatherCollection([weatherRes]);
-                    }else{
-                        setWeatherCollection([...weatherCollection, weatherRes]);
-                    }
-                }
-                //If you console log your weatherData here, u will received a blank state. 
-                //This is because useState is async and this console fire before the data has been set. *Cont...*
-            }catch(error){
-                console.error(error);
-                setErrorValidation(true);
-            }
-        };
-        //This effect will run once the dependency change value
         weatherGet();
     },[weatherApi]) //<---dependency
     //*...Resume* If console log here for weatherData. You will received the actual data from API.
