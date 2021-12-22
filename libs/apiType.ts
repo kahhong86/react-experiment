@@ -25,3 +25,10 @@ export interface weatherInfo{
     }],
     dt:number,
 }
+
+
+export interface dataCollection {
+    [index: number]: { 
+        list: string; check: boolean 
+    };
+}
