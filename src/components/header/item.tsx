@@ -30,4 +30,10 @@ export const NavigationItem = [
         url: "/fifth",
         desc: ""
     },
+    {
+        name: "Sixth Experiment",
+        small_name: "6",
+        url: "/sixth",
+        desc: ""
+    },
 ]
