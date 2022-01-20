@@ -6,7 +6,7 @@ interface formInfo{
     country: string
 }
 
-const Form:NextPage = ({childToParent}:any) => {
+const Form = ({childToParent}) => {
     const [formData, setFormData] = useState<formInfo>()
 
     const handleChange = (e) => {

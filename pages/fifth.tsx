@@ -10,7 +10,7 @@ interface FifthExperimentProps {
 const FifthExperiment: NextPage<FifthExperimentProps> = () => {
     const [data, setData] = useState('');
 
-    const childToParent = (childdata:any) => {
+    const childToParent = (childdata) => {
         setData(childdata);
     }
 
