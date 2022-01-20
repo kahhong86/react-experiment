@@ -25,6 +25,9 @@ const SixthExperiment: NextPage = () => {
             setNewMinute(59)
             setNewHour(23);
         }
+        return () => {
+            clearTimeout(timerSec);
+        };
     },[newSecond]);
 
     const handleSubmit = (e) => {
