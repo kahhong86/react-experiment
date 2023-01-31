@@ -6,21 +6,27 @@ const SixthExperiment: NextPage = () => {
     const DateTime = new Date().toLocaleTimeString('en-GB');
 
     const [allSeconds,setAllSeconds] = useState<number>(new Date().getHours()*60*60+new Date().getMinutes()*60+new Date().getSeconds());
-    const [newHour,setNewHour] = useState<number>(Math.floor(allSeconds/60/60));
-    const [newMinute,setNewMinute] = useState<number>(Math.floor((allSeconds - newHour*60*60)/60));
-    const [newSecond,setNewSecond] = useState<number>(allSeconds - (newHour*60*60 + newMinute*60));
+
+    const clockHour = Math.floor(allSeconds/60/60);
+    const clockMinute = Math.floor((allSeconds - clockHour*60*60)/60);
+    const clockSecond = (allSeconds - (clockHour*60*60 + clockMinute*60))
+
+    const [newHour,setNewHour] = useState<number>(Math.floor(clockHour));
+    const [newMinute,setNewMinute] = useState<number>(Math.floor(clockMinute));
+    const [newSecond,setNewSecond] = useState<number>(clockSecond);
     const [changeInput, setChangeInput] = useState<number>(1);
     const [useInput,setUseInput] = useState<number>(1);
     const [interData,setInterData] = useState<number>(new Date().getSeconds());
 
-    console.log(allSeconds - (newHour*60*60 + newMinute*60))
+    console.log("clock ", clockHour, clockMinute, clockSecond)
+    console.log("new ", newHour, newMinute, newSecond)
 
     useEffect(() => {
         let timerSec = setTimeout(() => {
             setAllSeconds(allSeconds - useInput);
-            setNewHour(Math.floor(allSeconds/60/60));
-            setNewMinute(Math.floor((allSeconds - newHour*60*60)/60));
-            setNewSecond((allSeconds - (newHour*60*60 + newMinute*60)));
+            setNewHour(Math.floor(clockHour));
+            setNewMinute(Math.floor(clockMinute));
+            setNewSecond(clockSecond);
         },1000);
 
         return () => {
@@ -49,7 +55,6 @@ const SixthExperiment: NextPage = () => {
 
             <p className="block mt-10"><strong>All in Seconds:</strong></p>
             <p>{allSeconds}</p>
-            <p>Hour: {Math.floor(allSeconds/60/60)} Minute:{Math.floor(allSeconds/60)} </p>
 
             <form onSubmit={handleSubmit} className="mt-5">
                 <label htmlFor="inputValue">Interval Value: </label>
