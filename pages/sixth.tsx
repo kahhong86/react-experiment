@@ -16,7 +16,6 @@ const SixthExperiment: NextPage = () => {
     const [newSecond,setNewSecond] = useState<number>(clockSecond);
     const [changeInput, setChangeInput] = useState<number>(1);
     const [useInput,setUseInput] = useState<number>(1);
-    const [interData,setInterData] = useState<number>(new Date().getSeconds());
 
     console.log("clock ", clockHour, clockMinute, clockSecond)
     console.log("new ", newHour, newMinute, newSecond)
