@@ -5,30 +5,28 @@ import Layout from "../src/components/layout";
 const SixthExperiment: NextPage = () => {
     const DateTime = new Date().toLocaleTimeString('en-GB');
 
-    const [newHour,setNewHour] = useState<number>(new Date().getHours());
-    const [newMinute,setNewMinute] = useState<number>(new Date().getMinutes());
-    const [newSecond,setNewSecond] = useState<number>(new Date().getSeconds());
+    const [allSeconds,setAllSeconds] = useState<number>(new Date().getHours()*60*60+new Date().getMinutes()*60+new Date().getSeconds());
+    const [newHour,setNewHour] = useState<number>(Math.floor(allSeconds/60/60));
+    const [newMinute,setNewMinute] = useState<number>(Math.floor((allSeconds - newHour*60*60)/60));
+    const [newSecond,setNewSecond] = useState<number>(allSeconds - (newHour*60*60 + newMinute*60));
     const [changeInput, setChangeInput] = useState<number>(1);
     const [useInput,setUseInput] = useState<number>(1);
     const [interData,setInterData] = useState<number>(new Date().getSeconds());
 
+    console.log(allSeconds - (newHour*60*60 + newMinute*60))
+
     useEffect(() => {
         let timerSec = setTimeout(() => {
-            if(newSecond - useInput < 0){
-                setNewSecond(60 + newSecond - useInput);
-                setNewMinute(newMinute - 1);
-            }else{
-                setNewSecond(newSecond - useInput);
-            }
+            setAllSeconds(allSeconds - useInput);
+            setNewHour(Math.floor(allSeconds/60/60));
+            setNewMinute(Math.floor((allSeconds - newHour*60*60)/60));
+            setNewSecond((allSeconds - (newHour*60*60 + newMinute*60)));
         },1000);
-        if(newMinute - newSecond < 0){
-            setNewMinute(59)
-            setNewHour(23);
-        }
+
         return () => {
             clearTimeout(timerSec);
         };
-    },[newSecond]);
+    },[allSeconds]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,6 +46,10 @@ const SixthExperiment: NextPage = () => {
             <p className="inline-block w-36"><strong className="w-20 block">Hours :</strong>   <span className="text-8xl">{newHour}</span></p>
             <p className="inline-block w-36"><strong className="w-20 block">Minutes :</strong> <span className="text-8xl">{newMinute}</span></p>
             <p className="inline-block w-36"><strong className="w-20 block">Seconds :</strong> <span className="text-8xl">{newSecond}</span></p>
+
+            <p className="block mt-10"><strong>All in Seconds:</strong></p>
+            <p>{allSeconds}</p>
+            <p>Hour: {Math.floor(allSeconds/60/60)} Minute:{Math.floor(allSeconds/60)} </p>
 
             <form onSubmit={handleSubmit} className="mt-5">
                 <label htmlFor="inputValue">Interval Value: </label>

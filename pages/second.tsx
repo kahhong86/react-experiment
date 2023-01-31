@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Layout from "../src/components/layout"
-import { fetchJson } from "../libs/api";
-import { switchGamesJson } from "../libs/apiType";
+import Layout from "../src/components/layout";
 import useApiFetch from "../hooks/useApiFetch";
 
 const apiSample = "https://api.sampleapis.com/switch/games";
