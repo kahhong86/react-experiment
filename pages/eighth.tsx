@@ -32,15 +32,18 @@ const EighthExperiment:FunctionComponent<EighthProps> = () => {
         const previousPoint = previousStatus.slice(0,stepNumber+1);
         const current = previousPoint[stepNumber];
 
-        //Prevent player to insert an occupied array.
-        if(current[i] === null){
-            console.log('empty');
-            current[i] = xO;
-            setPlayer(!player);
-            calculateWinner(current);
-            console.log(calculateWinner(current));
-        }else{
-            console.log('occupied');
+        //Determine is the game ended or not
+        if(winner == "N/A"){
+            //Prevent player to insert an occupied array.
+            if(current[i] === null){
+                console.log('empty');
+                current[i] = xO;
+                setPlayer(!player);
+                calculateWinner(current);
+                console.log(calculateWinner(current));
+            }else{
+                console.log('occupied');
+            }
         }
     }
 
@@ -61,7 +64,6 @@ const EighthExperiment:FunctionComponent<EighthProps> = () => {
             const [a,b,c] = winnerArray[i];
 
             if(array[a] && array[a] == array[b] && array[a] == array[c]){
-                // console.log('player',array[a],'won');
                 setWinner(array[a]);
             }
         }
