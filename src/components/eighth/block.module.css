@@ -1,0 +1,8 @@
+.main span{
+    border:1px solid black;
+    padding:15px;
+    display: inline-block;
+    width:50px;
+    text-align: center;
+    cursor: pointer;
+}

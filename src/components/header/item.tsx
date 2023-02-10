@@ -36,4 +36,16 @@ export const NavigationItem = [
         url: "/sixth",
         desc: ""
     },
+    {
+        name: "Seventh Experiment",
+        small_name: "7",
+        url: "/seventh",
+        desc: ""
+    },
+    {
+        name: "Eighth Experiment",
+        small_name: "8",
+        url: "/eighth",
+        desc: ""
+    },
 ]

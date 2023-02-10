@@ -1,7 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import FourthContext from "./context";
 
-const Info = () => {
+interface Infoprops{};
+
+const Info:FunctionComponent<Infoprops> = () => {
     const { data,setData } = useContext(FourthContext);
 
     //Filter for checkbox untick state.
