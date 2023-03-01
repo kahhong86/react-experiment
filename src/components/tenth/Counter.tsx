@@ -1,16 +1,16 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from './app/hooks';
 import { increment,decrement } from "./features/counterSlice";
+import sampleReducer from "./features/messageSlice";
 
 interface CounterProps{
-    state:{
-        counter:number
-    }
+    
 }
 
 const Counter:FunctionComponent<CounterProps> = () => {
-    const count = useSelector((state) => state.counter.value)
-    const dispatch = useDispatch()
+    const count = useAppSelector((state) => state.counter.value)
+    const dispatch = useAppDispatch()
 
     return(
         <div>
@@ -28,6 +28,7 @@ const Counter:FunctionComponent<CounterProps> = () => {
             >
                 Decrement
             </button>
+            
         </div>
       </div>
     )
