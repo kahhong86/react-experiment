@@ -13,7 +13,7 @@ const TenthExperiment:FunctionComponent<TenthProps> = () => {
     return(
             <Provider store={store}>
                 <Layout title="Redux">
-                    <h1>Redux</h1>
+                    <h1>Redux (Same as 4th Experiment but using Redux instead of Context)</h1>
                     <Counter />
                 </Layout>
             </Provider>
