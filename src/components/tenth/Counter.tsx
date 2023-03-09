@@ -1,8 +1,6 @@
 import { FunctionComponent, useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
 import { useAppSelector, useAppDispatch } from './app/hooks';
 import { createList, deleteItem ,editItem, updateItem, checkItem} from "./features/counterSlice";
-import sampleReducer from "./features/messageSlice";
 import { useState } from "react";
 
 interface CounterProps{}
@@ -13,8 +11,8 @@ interface inputValueProps{
 }
 
 const Counter:FunctionComponent<CounterProps> = () => {
-    const count = useAppSelector((state) => state.counter.value);
-    const msg = useAppSelector((state) => state.counter.message);
+    // const count = useAppSelector((state) => state.counter.value);
+    // const msg = useAppSelector((state) => state.counter.message);
     const data = useAppSelector((state) => state.counter.data);
     const dispatch = useAppDispatch();
     const [list,setList] = useState<string>("");

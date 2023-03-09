@@ -1,20 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../app/store'
 
+
+interface array{
+  message:string,
+  edit:boolean,
+  check:boolean,
+}
+
 // Define a type for the slice state
 interface CounterState {
-  value: number,
-  message: string,
   data: any,
-  edit:boolean,
 }
 
 // Define the initial state using that type
 const initialState: CounterState = {
-  value: 0,
-  message: "",
   data: [],
-  edit: false,
 }
 
 export const counterSlice = createSlice({
@@ -23,11 +24,11 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    createList: (state, action: PayloadAction<any>) => {
+    createList: (state, action: PayloadAction<array>) => {
         state.data.push(action.payload);
         console.log('createlist state ',state.data[0]);
     },
-    deleteItem: (state, action: PayloadAction<any>) => {
+    deleteItem: (state, action: PayloadAction<array>) => {
         state.data.splice(action.payload,1);
     },
     updateItem: (state, action: PayloadAction<any>) => {
@@ -52,6 +53,6 @@ export const counterSlice = createSlice({
 export const { createList, deleteItem, editItem, updateItem, checkItem } = counterSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
+// export const selectCount = (state: RootState) => state.counter.value
 
 export default counterSlice.reducer
