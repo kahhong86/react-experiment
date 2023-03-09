@@ -39,7 +39,7 @@ const Counter:FunctionComponent<CounterProps> = () => {
     }
 
     const editChange = (value,e) => {
-        const newData:{message:string,index:number} = {message:value.target.value, index:e}
+        const newData:tempArray = {message:value.target.value, index:e}
         setNewInputValue(newData);
     }
 
