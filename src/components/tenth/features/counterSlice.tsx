@@ -26,7 +26,6 @@ export const counterSlice = createSlice({
     // Use the PayloadAction type to declare the contents of `action.payload`
     createList: (state, action: PayloadAction<array>) => {
         state.data.push(action.payload);
-        console.log('createlist state ',state.data[0]);
     },
     deleteItem: (state, action: PayloadAction<array>) => {
         state.data.splice(action.payload,1);
