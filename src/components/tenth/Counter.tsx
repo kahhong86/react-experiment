@@ -9,6 +9,10 @@ interface inputValueProps{
     edit:boolean,
     check:boolean,
 }
+interface tempArray{
+    message:string,
+    index:number
+}
 
 const Counter:FunctionComponent<CounterProps> = () => {
     // const count = useAppSelector((state) => state.counter.value);
@@ -16,7 +20,7 @@ const Counter:FunctionComponent<CounterProps> = () => {
     const data = useAppSelector((state) => state.counter.data);
     const dispatch = useAppDispatch();
     const [list,setList] = useState<string>("");
-    const [newInputValue, setNewInputValue] = useState([]);
+    const [newInputValue, setNewInputValue] = useState<tempArray>();
     const [inputValue, setInputValue] = useState<inputValueProps>({
         message:"",
         edit: null,
@@ -35,7 +39,7 @@ const Counter:FunctionComponent<CounterProps> = () => {
     }
 
     const editChange = (value,e) => {
-        const newData:any = {message:value.target.value, index:e}
+        const newData:{message:string,index:number} = {message:value.target.value, index:e}
         setNewInputValue(newData);
     }
 

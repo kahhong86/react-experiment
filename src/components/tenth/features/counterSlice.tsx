@@ -10,7 +10,7 @@ interface array{
 
 // Define a type for the slice state
 interface CounterState {
-  data: any,
+  data: array[],
 }
 
 // Define the initial state using that type
@@ -27,19 +27,19 @@ export const counterSlice = createSlice({
     createList: (state, action: PayloadAction<array>) => {
         state.data.push(action.payload);
     },
-    deleteItem: (state, action: PayloadAction<array>) => {
+    deleteItem: (state, action: PayloadAction<number>) => {
         state.data.splice(action.payload,1);
     },
-    updateItem: (state, action: PayloadAction<any>) => {
+    updateItem: (state, action: PayloadAction<{message:string,index:number}>) => {
         const msg = action.payload.message;
         const index = action.payload.index;
         state.data[index].message = msg;
         state.data[index].edit = false;
     },
-    editItem: (state,action: PayloadAction<string>) => {
+    editItem: (state,action: PayloadAction<number>) => {
         state.data[action.payload].edit = true;
     },
-    checkItem: (state,action: PayloadAction<any>) => {
+    checkItem: (state,action: PayloadAction<number>) => {
         if(state.data[action.payload].check == true){
             state.data[action.payload].check = false;
         }else{
