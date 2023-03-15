@@ -15,18 +15,14 @@ interface tempArray{
 }
 
 const Counter:FunctionComponent<CounterProps> = () => {
-    // const count = useAppSelector((state) => state.counter.value);
-    // const msg = useAppSelector((state) => state.counter.message);
     const data = useAppSelector((state) => state.counter.data);
     const dispatch = useAppDispatch();
-    const [list,setList] = useState<string>("");
     const [newInputValue, setNewInputValue] = useState<tempArray>();
     const [inputValue, setInputValue] = useState<inputValueProps>({
         message:"",
         edit: null,
         check: null,
     });
-    const tempData = data;
 
     const handleChange = (e) => {
         setInputValue((prev)=> ({
@@ -72,6 +68,8 @@ const Counter:FunctionComponent<CounterProps> = () => {
             <h2 className="font-bold border-b-2 border-black mb-2">To Do List</h2>
             <ul className="mt-2">
                 {printList}
+                {data.length == 0 ? "You have no task" : data.length == 1 ? "You have 1 task" : data.length >= 2 ? "You have " + data.length + " tasks" : ""}
+                {/* Total number of tasks {data.length}  */}
             </ul>
         </div>
     )

@@ -7,6 +7,10 @@ interface array{
   edit:boolean,
   check:boolean,
 }
+interface tempArray{
+  message:string,
+  index:number
+}
 
 // Define a type for the slice state
 interface CounterState {
@@ -30,7 +34,7 @@ export const counterSlice = createSlice({
     deleteItem: (state, action: PayloadAction<number>) => {
         state.data.splice(action.payload,1);
     },
-    updateItem: (state, action: PayloadAction<{message:string,index:number}>) => {
+    updateItem: (state, action: PayloadAction<tempArray>) => {
         const msg = action.payload.message;
         const index = action.payload.index;
         state.data[index].message = msg;
