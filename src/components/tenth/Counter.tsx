@@ -59,6 +59,8 @@ const Counter:FunctionComponent<CounterProps> = () => {
         )
     })
 
+    const info = data.filter(info => info.check == false);
+
     return(
         <div className="mb-2 relative pb-2">
             <div className="mb-10">
@@ -68,8 +70,7 @@ const Counter:FunctionComponent<CounterProps> = () => {
             <h2 className="font-bold border-b-2 border-black mb-2">To Do List</h2>
             <ul className="mt-2">
                 {printList}
-                {data.length == 0 ? "You have no task" : data.length == 1 ? "You have 1 task" : data.length >= 2 ? "You have " + data.length + " tasks" : ""}
-                {/* Total number of tasks {data.length}  */}
+                {info.length == 0 ? "You have no task" : info.length == 1 ? "You have 1 task" : info.length >= 2 ? "You have " + info.length + " tasks" : ""}
             </ul>
         </div>
     )
