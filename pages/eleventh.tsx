@@ -54,12 +54,11 @@ const Eleventh:FunctionComponent<EleventhProps> = () => {
 
     return(
         <Layout title="Eleventh">
-            <h1>Experiment 11 (Promise and Async/Await)</h1>
+            <h1>Experiment 11 (Promise)</h1>
             <h2 className="font-bold">Promise</h2>
             <div className="mb-10">
                 {print}
             </div>
-            <h2 className="font-bold">Async / Await</h2>
 
         </Layout>
     )
