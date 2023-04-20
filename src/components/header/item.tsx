@@ -62,14 +62,20 @@ export const NavigationItem = [
     },
     {
         name: "Eleventh Experiment",
-        small_name: "10",
+        small_name: "11",
         url: "/eleventh",
         desc: ""
     },
     {
         name: "Twelveth Experiment",
-        small_name: "10",
+        small_name: "12",
         url: "/twelfth",
+        desc: ""
+    },
+    {
+        name: "Thirteenth Experiment",
+        small_name: "13",
+        url: "/thirteenth",
         desc: ""
     },
 ]

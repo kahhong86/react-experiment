@@ -126,6 +126,7 @@ const ThirdExperiment = () => {
         )
     });
     const weatherCollectionPrint = [...weatherCollection].map((collectionData,index) => {
+        console.log("weatherCollection ",weatherCollection);
         return(
             <div key={index} className="mb-2 relative">
                 {collectionData.name}, {collectionData.sys.country} 
